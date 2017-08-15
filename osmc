@@ -1,0 +1,48 @@
+sudo apt-get install transmission-cli transmission-common transmission-daemon
+
+https://help.ubuntu.com/community/TransmissionHowTo
+
+sudo service transmission-daemon stop
+sudo nano /etc/transmission-daemon/settings.json
+
+"rpc-whitelist-enabled": false,
+"umask": 2,
+
+http://192.168.1.15:9091/transmission/web/
+transmission
+transmission
+
+sudo service transmission-daemon start
+sudo service transmission-daemon stop
+sudo service transmission-daemon reload
+
+sudo apt-get install python-pip python-dev build-essential
+sudo pip install --upgrade setuptools
+
+sudo pip install transmissionrpc
+sudo pip install flexget
+
+flexget --test execute
+sudo mkdir /home/osmc/.flexget
+sudo chmod 777 /home/osmc/.flexget
+
+ftp config.yml to /home/osmc/.flexget
+
+sudo apt-get install cron
+crontab -e
+
+add line :
+@reboot /usr/local/bin/flexget daemon start -d
+
+sudo reboot now
+flexget daemon status
+
+flexget execute
+
+sudo nano config.txt
+
+max_usb_current=1
+
+install anidb plugin
+
+copy advancedsettings.xml
